@@ -1,0 +1,9 @@
+torch
+torchvision
+pytorch-lightning
+transformers
+peft
+Pillow
+tqdm
+sentencepiece
+accelerate
