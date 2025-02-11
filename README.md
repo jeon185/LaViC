@@ -96,19 +96,19 @@ Populate `train_images/` and `valid_images/`:
 
 ### 4. Recommendation Prompt Tuning
 
-```
-python prompt_tuning.py \
-  --model_dir ./out_distilled/vision_lora_adapter_best \
-  --candidate_type candidates_st \
-  --finetune_output_dir ./out_finetuned \
-  --max_length 2048 \
-  --batch_size 1 \
-  --lr 5e-5 --weight_decay 1e-5 \
-  --num_epochs 1 \
-  --item_meta_path ../data/item2meta_train.json \
-  --image_dir ../data/train_images \
-  --category all_beauty
-```
+  ```bash
+  python prompt_tuning.py \
+    --model_dir ./out_distilled/vision_lora_adapter_best \
+    --candidate_type candidates_st \
+    --finetune_output_dir ./out_finetuned \
+    --max_length 2048 \
+    --batch_size 1 \
+    --lr 5e-5 --weight_decay 1e-5 \
+    --num_epochs 1 \
+    --item_meta_path ../data/item2meta_train.json \
+    --image_dir ../data/train_images \
+    --category all_beauty
+  ```
 
 - Key Arguments:
   - --model_dir: Path to the distilled model from the previous distillation step.
