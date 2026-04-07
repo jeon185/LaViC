@@ -271,7 +271,6 @@ def main():
         precision="16-mixed",
         gradient_clip_val=1.0,
         accumulate_grad_batches=4,
-        accumulate_grad_batches=4,
         log_every_n_steps=10,
     )
 
