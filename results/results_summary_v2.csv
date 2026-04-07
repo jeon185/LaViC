@@ -1,0 +1,2 @@
+candidate_type,lr,num_epochs,HR@1,VR,output_file
+candidates_st,5e-05,1,0.16624685138539042,0.9650537634408602,test_results_candidates_st.jsonl
