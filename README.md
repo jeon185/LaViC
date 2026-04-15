@@ -66,7 +66,7 @@ ds8008-group8-lavic/
 
 ---
 
-## Quick Start
+## Work Flow
 
 ### 1. Environment Setup
 ```bash
@@ -74,11 +74,14 @@ cd ds8008-group8-lavic
 pip install -r requirements.txt
 ```
 
-### 2. Image Crawling
+### 2. Image Crawling and Subsetting
+This will take around 2 hours
 ```bash
 cd src
 python crawl_images.py
 ```
+
+
 
 ### 3. Visual Knowledge Self-Distillation
 ```bash
@@ -89,7 +92,7 @@ python knowledge_distillation.py \
   --train_images_dir ../data/train_images \
   --val_images_dir ../data/valid_images \
   --output_dir ./out_distilled \
-  --lr 5e-5 --weight_decay 1e-5 --num_epochs 5 --batch_size 4
+  --lr 5e-5 --weight_decay 1e-5 --num_epochs 2 --batch_size 4
 ```
 
 ### 4. Recommendation Prompt Tuning
