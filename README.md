@@ -108,8 +108,9 @@ You will upload these items to your Google Drive or Colab environment in this or
 |    │   ├── item2meta_train_amazon_home.json
 |    │   └── item2meta_valid.jsonl
 |    └── src/
-|        ├── knowledge_distillation.py
-|        └── prompt_tuning.py
+|    │   ├── knowledge_distillation.py
+|    │   └── prompt_tuning.py
+|    └── requirements.txt
 ├──LaViC.ipynb
 ```
 ### 4. Run prechecks and Notes
