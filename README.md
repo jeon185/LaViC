@@ -38,7 +38,7 @@ We also analyze LaViC in relation to **Rec-GPT4V**, a zero-shot multimodal basel
 
 ## Domain Focus
 
-For this reimplementation, we focus on the **Home** domain (`amazon_home`) from the Reddit-Amazon dataset.
+For this reimplementation, we mainly focus on the **Home** domain (`amazon_home`) from the Reddit-Amazon dataset.
 
 ---
 
