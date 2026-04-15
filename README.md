@@ -80,35 +80,50 @@ This will take around 2 hours
 cd src
 python crawl_images.py
 ```
+place both create_home_sub_images.py and make_home_item2meta_subset.py inside data folder
+Call CMD inside the data folder
 
+**Before you run create_home_sub_images.py**
+ - The code will extract exactly 2 images per item by default, that is, a training image size of 5674 images
+ - You can change this by editing the .py with **MAX_IMAGES_PER_ITEM = 2 on line 11**
 
-
-### 3. Visual Knowledge Self-Distillation
+Run these two lines in order:
 ```bash
-python knowledge_distillation.py \
-  --model_name llava-hf/llava-v1.6-mistral-7b-hf \
-  --train_data ../data/item2meta_train.json \
-  --val_data ../data/item2meta_valid.jsonl \
-  --train_images_dir ../data/train_images \
-  --val_images_dir ../data/valid_images \
-  --output_dir ./out_distilled \
-  --lr 5e-5 --weight_decay 1e-5 --num_epochs 2 --batch_size 4
+python create_home_sub_images.py
+python make_home_item2meta_subset.py
 ```
+Two things will be created
+ - amazon_home_train_images_subset (Folder)
+ - item2meta_train_amazon_home.json
 
-### 4. Recommendation Prompt Tuning
-```bash
-python prompt_tuning.py \
-  --model_dir ./out_distilled/vision_lora_adapter_best \
-  --candidate_type candidates_st \
-  --finetune_output_dir ./out_finetuned \
-  --max_length 2048 \
-  --batch_size 1 \
-  --lr 5e-5 --weight_decay 1e-5 \
-  --num_epochs 1 \
-  --item_meta_path ../data/item2meta_train.json \
-  --image_dir ../data/train_images \
-  --category amazon_home
+### 3. Upload to Google Colab
+You will upload these items to your Google Drive or Colab environment in this order
+```plaintext
+├── LaViC/
+|    ├── data/
+|    │   ├── amazon_home_train_images_subset (Image Folder)
+|    │   ├── amazon_home
+|    │   │   ├── train.jsonl
+|    │   │   ├── valid.jsonl
+|    │   │   └── test.jsonl
+|    │   ├── valid_images (Image Folder)
+|    │   ├── item2meta_train_amazon_home.json
+|    │   └── item2meta_valid.jsonl
+|    └── src/
+|        ├── knowledge_distillation.py
+|        └── prompt_tuning.py
+├──LaViC.ipynb
 ```
+### 4. Run prechecks and Notes
+ - Run Cell 1 to mount your Google Drive, if you have uploaded all the files to it
+ - Run Cell 2-4 to check GPU and packages
+ - Note: We used A100 GPU for this project, and it is not included in free version of Colab, you may run into disk space issues in the middle, depending on your disk useage.
+
+### 5. Visual Knowledge Self-Distillation & Recommendation Prompt Tuning
+ - Run Cell 5 for Visual Knowledge Self-Distillation, and at the end it will create two files
+ - Run Cell 6 for Recommendation Prompt Tuning and testing, this .py file fine-tunes the model, then run the test on the final model.  Result will be shown on screen at the end
+ - Note: expect to spend from 25-40 minutes per Cell block here, with A100 GPU.  Around 26 hours per cell with T4 GPU
+
 
 ---
 
