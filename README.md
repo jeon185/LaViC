@@ -47,18 +47,17 @@ For this reimplementation, we focus on the **Home** domain (`amazon_home`) from 
 ds8008-group8-lavic/
   ├── notebooks/
   │   └── LaViC_Report.ipynb
-  ├── presentation/
-  │   └── group8_slides.pdf
+  │   ├── LaViC.ipynb
   ├── data/
   │   ├── amazon_home/
   │   │   ├── train.jsonl
   │   │   ├── valid.jsonl
   │   │   └── test.jsonl
-  │   ├── train_images/
-  │   ├── valid_images/
-  │   ├── item2meta_train.json
+  │   ├── item2meta_train.json.zip
   │   └── item2meta_valid.jsonl
   └── src/
+      ├── create_home_sub_images.py
+      ├── make_home_item2meta_subset.py
       ├── crawl_images.py
       ├── knowledge_distillation.py
       └── prompt_tuning.py
