@@ -80,8 +80,7 @@ This will take around 2 hours
 cd src
 python crawl_images.py
 ```
-place both create_home_sub_images.py and make_home_item2meta_subset.py inside data folder
-Call CMD inside the data folder
+Place both create_home_sub_images.py and make_home_item2meta_subset.py inside the **data** folder, then call CMD inside the data folder
 
 **Before you run create_home_sub_images.py**
  - The code will extract exactly 2 images per item by default, that is, a training image size of 5674 images
